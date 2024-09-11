@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartinha de Aniversário</title>
+    <style>
+        body {
+            font-family: 'Arial Black', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffccff;
+            margin: 0; /* Remove margin for full width */
+        }
+        .card {
+            width: 300px;
+            max-height: 80vh; /* Limit height to 80% of viewport height */
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.3s ease; /* Smooth transition for max-height change */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card.opened {
+            max-height: 100vh; /* Increase max-height to full viewport height when opened */
+            cursor: default;
+            flex-direction: column;
+        }
+        .card p {
+            margin: 20px;
+            display: none;
+        }
+        .card.opened p {
+            display: block;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #ff99cc;
+        }
+        .buttons button:hover {
+            background-color: #ff66b2;
+        }
+        .message {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card" id="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyxyKPXu91W7wzA2n83FgLbIe-ne5k5tUAk3JjYUvj7k3o6wpNYu-iOugM&s=10" alt="Cartinha">
+    <p> Por gentileza, manda fototeta🙈</p>
+</div>
+
+<div class="message">Abrir cartinha?</div>
+<div class="buttons">
+    <button onclick="openCard()">Sim</button>
+    <button onclick="openCard()">Sim</button>
+</div>
+
+<script>
+    function openCard() {
+        document.getElementById('card').classList.add('opened');
+    }
+
+    function closeCard() {
+        document.getElementById('card').classList.remove('opened');
+    }
+</script>
+
+</body>
+</html>
